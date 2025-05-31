@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom"
 
 const Code = () => {
    const navigate = useNavigate()
-  const goToCode = ()=>{
+  const goToCollect = ()=>{
     navigate('/collect')
   }
   return (
@@ -11,9 +11,9 @@ const Code = () => {
        <header className="d-flex justify-content-between px-3 py-2">
     <p className="time fw-semibold ps-4">9:41</p>
     <div className="d-flex align-items-center gap-2">
-      <img src="/images/mobile-signal.svg" alt="mobile-signal.svg"/>
-      <img src="/images/wifi.svg" alt="wifi.svg"/>
-      <img src="/images/battary.svg" alt="battary.svg"/>
+      <img src="/images/mobile-signal.svg" alt="mobile-signal.svg" style={{cursor:'pointer'}}/>
+      <img src="/images/wifi.svg" alt="wifi.svg" style={{cursor:'pointer'}}/>
+      <img src="/images/battary.svg" alt="battary.svg" style={{cursor:'pointer'}}/>
     </div>
   </header>
 
@@ -35,7 +35,7 @@ const Code = () => {
     </div>
 
     <div className="position-relative z-1 py-4">
-      <button className="button second-button" onClick={goToCode}>GET STARTED</button>
+      <button className="button second-button" onClick={goToCollect}>GET STARTED</button>
     </div>
 
     <div className="position-relative z-1 pt-3">
