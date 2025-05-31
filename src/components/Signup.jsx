@@ -37,7 +37,7 @@ const Signup = () => {
         <label for="name" className="fw-light" style={{fontSize:'14px', color:'#D8D8D8', letterSpacing:'0.01em'}}>Your Name</label>
         <div className="border-1 py-2 px-3 d-flex gap-2" style={{border:'1px solid #ECECEC', borderRadius:'5px'}}>
           <img src="/images/user.svg" alt="user.svg"/>
-          <input type="name" name="name" required className="border-0 bg-transparent fw-light" style={{outline:'none', color:'#D8D8D8', fontSize:'18px'}} style={{outline:'none', color:'#D8D8D8', fontSize:'18px'}}/>
+          <input type="name" name="name" required className="border-0 bg-transparent fw-light" style={{outline:'none', color:'#D8D8D8', fontSize:'18px'}}/>
         </div>
       </div>
       <div>
