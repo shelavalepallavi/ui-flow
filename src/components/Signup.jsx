@@ -5,6 +5,7 @@ import { useNavigate } from "react-router-dom"
 const Signup = () => {
    const [masked, setmasked] = useState('')
     const [realPassword, setRealPassword] = useState('')
+    const [showPassword, setShowPassword] = useState(false);
 
    const navigate = useNavigate()
   const goTodash = ()=>{
@@ -25,6 +26,10 @@ const Signup = () => {
       }
       setmasked('*'.repeat(newValue.length))
 
+    }
+
+    const togglePass = ()=> {
+      setShowPassword(prev => !prev)
     }
   return (
     <div className='className="w-100 min-vh-100 position-relative' style={{background:' #000417'}}>
@@ -69,10 +74,10 @@ const Signup = () => {
         <div className="border-1 py-2 px-3 d-flex justify-content-between" style={{border:'1px solid #ECECEC', borderRadius:'5px'}}>
           <div className="d-flex gap-2">
             <img src="/images/pass-light.svg" alt="pass-light.svg"/>
-          <input type="text" className="border-0 bg-transparent fw-light" style={{outline:'none', color:'#D8D8D8', fontSize:'18px'}} value={masked} onChange={handleChange} required/>
+          <input type="text" className="border-0 bg-transparent fw-light" style={{outline:'none', color:'#D8D8D8', fontSize:'18px'}} value={showPassword ? realPassword : masked} onChange={handleChange} required/>
           <input type="hidden" className="border-0 bg-transparent fw-light" style={{outline:'none', color:'#D8D8D8', fontSize:'18px'}} value={realPassword} readOnly/>
           </div>
-          <img src="/images/eye-close.svg" alt="eye-close.svg" style={{cursor:'pointer'}}/>
+          <img src={showPassword ? '/images/eye-open.svg': '/images/eye-close.svg'} alt="eye-close.svg" style={{cursor:'pointer'}} onClick={togglePass}/>
         </div>
       </div>
       <div className="d-flex justify-content-center mt-4">

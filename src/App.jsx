@@ -5,6 +5,12 @@ import Collect from './components/Collect'
 import Welcome from './components/Welcome'
 import Signup from './components/Signup'
 import Login from './components/Login'
+import Dashboard from './components/Dashboard'
+import Ecommerce from './components/Ecommerce'
+import Blog from './components/Blog'
+import Chat from './components/Chat'
+import Map from './components/Map'
+import Profile from './components/Profile'
 
 const App = () => {
   return (
@@ -17,6 +23,12 @@ const App = () => {
           <Route path='/welcome' element={<Welcome/>}/>
           <Route path='/signup' element={<Signup/>}/>
           <Route path='/login' element={<Login/>}/>
+          <Route path='/dashboard' element={<Dashboard/>}/>
+          <Route path='/ecommerce' element={<Ecommerce/>}/>
+          <Route path='/blog' element={<Blog/>}/>
+          <Route path='/chat' element={<Chat/>}/>
+          <Route path='/map' element={<Map/>}/>
+          <Route path='/profile' element={<Profile/>}/>
         </Routes>
       </Router>
     </div>
