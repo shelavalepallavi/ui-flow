@@ -1,7 +1,11 @@
 
+import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 
 const Login = () => {
+  const [masked, setmasked] = useState('')
+  const [realPassword, setRealPassword] = useState('')
+
    const navigate = useNavigate()
   const goTodash = ()=>{
     navigate('/dashboard')
@@ -9,6 +13,21 @@ const Login = () => {
   const backToWelcome = ()=>{
     navigate('/welcome')
   }
+
+  
+    const handleChange = (e)=> {
+      const newValue = e.target.value;
+
+      if(newValue.length < masked.length){
+        setRealPassword(prev =>  prev.slice(0, newValue.length))
+      } else {
+        const addedChar = newValue.replace(/\*/g, '')[0] || '';
+        setRealPassword(prev => prev + addedChar)
+      }
+      setmasked('*'.repeat(newValue.length))
+
+    }
+
   return (
     <div className="d-flex flex-column  w-100 min-vh-100">
       <div className="position-relative z-0 " style={{background:"url('/images/welcome.png') no-repeat center center", backgroundSize:'cover', height:'100vh'}}>
@@ -22,28 +41,28 @@ const Login = () => {
       <img src="/images/battary.svg" alt="battary.svg" style={{cursor:'pointer'}}/>
     </div>
   </header>
-  x
+  
      <div className="d-inline-block bg-white p-2 rounded-circle ms-5 mt-2" style={{cursor:'pointer'}}>
       <span onClick={backToWelcome}><img src="/images/left-arrow.svg" alt="left-arrow.svg"/></span>
     </div>
 
-    <form action={goTodash} method="GET" className="position-absolute bottom-0 start-0 z-1 pt-5 px-4 d-flex flex-column  gap-3 align-items-sm-center" style={{background:"url('/images/white-image.png') no-repeat top center", backgroundSize:'cover', height:'60vh', width:'100%'}}>
+    <form action={goTodash} className="position-absolute bottom-0 start-0 z-1 pt-5 px-4 d-flex flex-column  gap-3 align-items-sm-center" style={{background:"url('/images/white-image.png') no-repeat top center", backgroundSize:'cover', height:'60vh', width:'100%'}}>
       <p className="fw-medium" style={{fontSize:'24px', color:'#3D0007'}}>Log in</p>
 
       <div>
-        <label for="email" className="fw-light" style={{fontSize:'14px', color:'#3D0007', letterSpacing:'0.01em'}}>Your Email</label>
+        <label className="fw-light" style={{fontSize:'14px', color:'#3D0007', letterSpacing:'0.01em'}}>Your Email</label>
         <div className="border-1 py-2 px-3 d-flex gap-3" style={{border:'1px solid #989595', borderRadius:'5px'}}>
           <img src="/images/email.svg" alt="email.svg"/>
-          <input type="email" name="email" required className="border-0" style={{outline:'none'}}/>
+          <input type="email"  required className="border-0" style={{outline:'none'}}/>
         </div>
       </div>
 
       <div>
-        <label for="customPassword" className="fw-light" style={{fontSize:'14px', color:'#3D0007', letterSpacing:'0.01em'}}>Your Password</label>
+        <label  className="fw-light" style={{fontSize:'14px', color:'#3D0007', letterSpacing:'0.01em'}}>Your Password</label>
         <div className="border-1 py-2 px-3 d-flex gap-3" style={{border:'1px solid #989595', borderRadius:'5px'}}>
           <img src="/images/pass.svg" alt="pass.svg"/>
-          <input type="text" name="password" id="customPassword" required className="border-0" style={{outline:'none'}}/>
-          <input type="hidden" name="password" id="realPassword" required className="border-0" style={{outline:'none'}}/>
+          <input type="text"   className="border-0" style={{outline:'none'}} value={masked} onChange={handleChange} required/>
+          <input type="hidden" className="border-0" style={{outline:'none'}} value={realPassword} readOnly/>
         </div>
       </div>
 

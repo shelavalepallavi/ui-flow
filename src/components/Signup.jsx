@@ -1,7 +1,11 @@
+import { useState } from "react"
 import { useNavigate } from "react-router-dom"
 
 
 const Signup = () => {
+   const [masked, setmasked] = useState('')
+    const [realPassword, setRealPassword] = useState('')
+
    const navigate = useNavigate()
   const goTodash = ()=>{
     navigate('/dashboard')
@@ -9,6 +13,19 @@ const Signup = () => {
   const goToLogin = ()=>{
     navigate('/login')
   }
+
+   const handleChange = (e)=> {
+      const newValue = e.target.value;
+
+      if(newValue.length < masked.length){
+        setRealPassword(prev =>  prev.slice(0, newValue.length))
+      } else {
+        const addedChar = newValue.replace(/\*/g, '')[0] || '';
+        setRealPassword(prev => prev + addedChar)
+      }
+      setmasked('*'.repeat(newValue.length))
+
+    }
   return (
     <div className='className="w-100 min-vh-100 position-relative' style={{background:' #000417'}}>
       <header className="d-flex justify-content-between px-2 pt-2">
@@ -32,28 +49,28 @@ const Signup = () => {
       
     </div>
 
-    <form action={goTodash} method="GET" className="d-flex flex-column gap-3">
+    <form action={goTodash} className="d-flex flex-column gap-3">
       <div>
-        <label for="name" className="fw-light" style={{fontSize:'14px', color:'#D8D8D8', letterSpacing:'0.01em'}}>Your Name</label>
+        <label  className="fw-light" style={{fontSize:'14px', color:'#D8D8D8', letterSpacing:'0.01em'}}>Your Name</label>
         <div className="border-1 py-2 px-3 d-flex gap-2" style={{border:'1px solid #ECECEC', borderRadius:'5px'}}>
           <img src="/images/user.svg" alt="user.svg"/>
-          <input type="name" name="name" required className="border-0 bg-transparent fw-light" style={{outline:'none', color:'#D8D8D8', fontSize:'18px'}}/>
+          <input type="name"  required className="border-0 bg-transparent fw-light" style={{outline:'none', color:'#D8D8D8', fontSize:'18px'}}/>
         </div>
       </div>
       <div>
-        <label for="email" className="fw-light" style={{fontSize:'14px', color:'#D8D8D8', letterSpacing:'0.01em'}}>Your Email</label>
+        <label  className="fw-light" style={{fontSize:'14px', color:'#D8D8D8', letterSpacing:'0.01em'}}>Your Email</label>
         <div className="border-1 py-2 px-3 d-flex gap-2" style={{border:'1px solid #ECECEC', borderRadius:'5px'}}>
           <img src="/images/email-light.svg" alt="email-light.svg"/>
-          <input type="email" name="email" required className="border-0 bg-transparent fw-light" style={{outline:'none', color:'#D8D8D8', fontSize:'18px'}}/>
+          <input type="email" required className="border-0 bg-transparent fw-light" style={{outline:'none', color:'#D8D8D8', fontSize:'18px'}}/>
         </div>
       </div>
       <div>
-        <label for="customPassword" className="fw-light" style={{fontSize:'14px', color:'#D8D8D8', letterSpacing:'0.01em'}}>Your Password</label>
+        <label  className="fw-light" style={{fontSize:'14px', color:'#D8D8D8', letterSpacing:'0.01em'}}>Your Password</label>
         <div className="border-1 py-2 px-3 d-flex justify-content-between" style={{border:'1px solid #ECECEC', borderRadius:'5px'}}>
           <div className="d-flex gap-2">
             <img src="/images/pass-light.svg" alt="pass-light.svg"/>
-          <input type="text" name="password" id="customPassword" required  autocomplete="off" className="border-0 bg-transparent fw-light" style={{outline:'none', color:'#D8D8D8', fontSize:'18px'}}/>
-          <input type="hidden" id="realPassword" required autocomplete="off" className="border-0 bg-transparent fw-light" style={{outline:'none', color:'#D8D8D8', fontSize:'18px'}}/>
+          <input type="text" className="border-0 bg-transparent fw-light" style={{outline:'none', color:'#D8D8D8', fontSize:'18px'}} value={masked} onChange={handleChange} required/>
+          <input type="hidden" className="border-0 bg-transparent fw-light" style={{outline:'none', color:'#D8D8D8', fontSize:'18px'}} value={realPassword} readOnly/>
           </div>
           <img src="/images/eye-close.svg" alt="eye-close.svg" style={{cursor:'pointer'}}/>
         </div>
