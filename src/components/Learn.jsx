@@ -1,5 +1,10 @@
+import { useNavigate } from "react-router-dom"
 
 const Learn = () => {
+  const navigate = useNavigate()
+  const goToCode = ()=>{
+    navigate('/code')
+  }
   return (
     <div className='d-flex flex-column w-100 min-vh-100'>
       <header className="d-flex justify-content-between px-3 py-2">
@@ -29,7 +34,7 @@ const Learn = () => {
     </div>
 
     <div className="position-relative z-1 py-4">
-      <a href="./second.html" className="button" role="button">GET STARTED</a>
+      <button onClick={goToCode} className="button">GET STARTED</button>
     </div>
 
     <div className="position-relative z-1 pt-3">
