@@ -2,6 +2,7 @@ import { useEffect } from "react";
 import { useRef } from "react";
 import Chart from "chart.js/auto";
 import { Link } from "react-router-dom";
+import Header from "./Header"
 
 
 const Dashboard = () => {
@@ -111,26 +112,7 @@ const Dashboard = () => {
       className="w-100 min-vh-100 d-flex flex-column"
       style={{ fontFamily: "Open Sans" }}
     >
-      <header className="d-flex justify-content-between px-3 py-2">
-        <p className="time fw-semibold ps-4">9:41</p>
-        <div className="d-flex align-items-center gap-2">
-          <img
-            src="/images/mobile-signal.svg"
-            alt="mobile-signal.svg"
-            style={{ cursor: "pointer" }}
-          />
-          <img
-            src="/images/wifi.svg"
-            alt="wifi.svg"
-            style={{ cursor: "pointer" }}
-          />
-          <img
-            src="/images/battary.svg"
-            alt="battary.svg"
-            style={{ cursor: "pointer" }}
-          />
-        </div>
-      </header>
+      <Header/>
 
       <div className="px-2 d-flex flex-sm-row flex-column-reverse justify-content-between gap-4 position-relative">
         <div className="fixed-sm-bottom bg-white z-1">

@@ -1,4 +1,5 @@
 import { useNavigate } from "react-router-dom"
+import Header from "./Header"
 
 const Learn = () => {
   const navigate = useNavigate()
@@ -7,15 +8,7 @@ const Learn = () => {
   }
   return (
     <div className='d-flex flex-column w-100 min-vh-100'>
-      <header className="d-flex justify-content-between px-3 py-2">
-    <p className="time fw-semibold ps-4">9:41</p>
-    <div className="d-flex align-items-center gap-2">
-      <img src="/images/mobile-signal.svg" alt="mobile-signal.svg" style={{cursor:'pointer'}}/>
-      <img src="/images/wifi.svg" alt="wifi.svg" style={{cursor:'pointer'}}/>
-      <img src="/images/battary.svg" alt="battary.svg" style={{cursor:'pointer'}}/>
-    </div>
-  </header>
-
+      <Header/>
   <main className="d-flex flex-column align-items-center justify-content-between flex-grow-1"style={{paddingTop:'100px'}}>
     <div className="position-relative">
       <img src="/images/circle.svg" alt="circle.svg" className="position-absolute z-1 custom-position-sm"/>

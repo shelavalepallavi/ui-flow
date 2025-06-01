@@ -1,6 +1,7 @@
 
 import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
+import Header from './Header'
 
 const Login = () => {
   const [masked, setmasked] = useState('')
@@ -33,14 +34,7 @@ const Login = () => {
       <div className="position-relative z-0 " style={{background:"url('/images/welcome.png') no-repeat center center", backgroundSize:'cover', height:'100vh'}}>
 
     
-    <header className="d-flex justify-content-between px-2 pt-2">
-    <p className="time fw-semibold ps-5">9:41</p>
-    <div className="d-flex align-items-center gap-2">
-      <img src="/images/mobile-signal.svg" alt="mobile-signal.svg" style={{cursor:'pointer'}}/>
-      <img src="/images/wifi.svg" alt="wifi.svg" style={{cursor:'pointer'}}/>
-      <img src="/images/battary.svg" alt="battary.svg" style={{cursor:'pointer'}}/>
-    </div>
-  </header>
+    <Header/>
   
      <div className="d-inline-block bg-white p-2 rounded-circle ms-5 mt-2" style={{cursor:'pointer'}}>
       <span onClick={backToWelcome}><img src="/images/left-arrow.svg" alt="left-arrow.svg"/></span>

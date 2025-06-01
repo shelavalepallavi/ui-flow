@@ -1,4 +1,5 @@
 import { useNavigate } from "react-router-dom";
+import Header from "./Header";
 
 const Welcome = () => {
   const navigate = useNavigate();
@@ -18,26 +19,7 @@ const Welcome = () => {
           backgroundSize: "contain",
         }}
       >
-        <header className="d-flex justify-content-between px-2 pt-2">
-          <p className="time fw-semibold ps-5">9:41</p>
-          <div className="d-flex align-items-center gap-2">
-            <img
-              src="/images/mobile-signal.svg"
-              alt="mobile-signal.svg"
-              style={{ cursor: "pointer" }}
-            />
-            <img
-              src="/images/wifi.svg"
-              alt="wifi.svg"
-              style={{ cursor: "pointer" }}
-            />
-            <img
-              src="/images/battary.svg"
-              alt="battary.svg"
-              style={{ cursor: "pointer" }}
-            />
-          </div>
-        </header>
+        <Header/>
 
         <div
           className="d-flex flex-column justify-content-center align-items-center gap-2"

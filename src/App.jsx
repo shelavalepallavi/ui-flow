@@ -11,6 +11,7 @@ import Blog from './components/Blog'
 import Chat from './components/Chat'
 import Map from './components/Map'
 import Profile from './components/Profile'
+import Header from './components/Header'
 
 const App = () => {
   return (
