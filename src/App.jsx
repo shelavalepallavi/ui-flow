@@ -11,7 +11,7 @@ import Blog from './components/Blog'
 import Chat from './components/Chat'
 import Map from './components/Map'
 import Profile from './components/Profile'
-import Header from './components/Header'
+import Cart from './components/Cart'
 
 const App = () => {
   return (
@@ -30,6 +30,7 @@ const App = () => {
           <Route path='/chat' element={<Chat/>}/>
           <Route path='/map' element={<Map/>}/>
           <Route path='/profile' element={<Profile/>}/>
+          <Route path='/ecommerce/cart' element={<Cart/>}/>
         </Routes>
       </Router>
     </div>

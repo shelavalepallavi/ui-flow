@@ -107,6 +107,13 @@ const Dashboard = () => {
       window.removeEventListener("resize", handleResize);
     };
   }, []);
+
+  const Activity = [
+    {bg_color:'#f7e3ff', emoji:'images/visits.svg', title:'VISITS', num:'4,324'},
+    {bg_color:'#d8ffe8', emoji:'images/likes.svg', title:'LIKES', num:'654'},
+    {bg_color:'#fff7df', emoji:'images/fav.svg', title:'FAVORITES', num:'855'},
+    {bg_color:'#def7ff', emoji:'images/views.svg', title:'VIEWS', num:'5,436'},
+  ]
   return (
     <div
       className="w-100 min-vh-100 d-flex flex-column"
@@ -216,44 +223,17 @@ const Dashboard = () => {
           <p className="pt-4 pb-2" style={{color:'#4f3a57', lineHeight:'22px', fontSize:'18px'}}> Key metrics <span className="fw-bolder">this week</span>
           </p>
           <div className="d-flex gap-sm-5 gap-2 flex-wrap justify-content-center">
-            <div className="d-flex align-items-center justify-content-between gap-3 p-4" style={{borderRadius:'15px', boxShadow:'0px 2px 10px rgba(178, 3, 108, 0.03),0px 9px 30px rgba(163, 1, 79, 0.05)'}} >
-              <div className="rounded-circle p-2 hover-dash text-center"  style={{background:'#f7e3ff', width:'46px', height:'46px'}}>
-                <img src="/images/visits.svg" alt="visits.svg" />
+            {Activity.map((item, index) => (
+              <div className="d-flex align-items-center justify-content-between gap-3 p-4" style={{borderRadius:'15px', boxShadow:'0px 2px 10px rgba(178, 3, 108, 0.03),0px 9px 30px rgba(163, 1, 79, 0.05)'}} >
+              <div className="rounded-circle p-2 hover-dash text-center"  style={{background:item.bg_color, width:'46px', height:'46px'}}>
+                <img src={item.emoji} alt="visits.svg" />
               </div>
               <div className="d-flex flex-column">
-               <span style={{color: "#bdbdbd", letterSpacing: "0.06em", fontSize: "10px", lineHeight: "14px", }}>VISITS</span>
-               <span style={{color: "#4f3a57",letterSpacing: "0.02em",lineHeight: "33px",}}className="fs-4 fw-bold"> 4,324</span>
+               <span style={{color: "#bdbdbd", letterSpacing: "0.06em", fontSize: "10px", lineHeight: "14px", }}>{item.title}</span>
+               <span style={{color: "#4f3a57",letterSpacing: "0.02em",lineHeight: "33px",}}className="fs-4 fw-bold">{item.num}</span>
               </div>
             </div>
-            <div className="d-flex align-items-center justify-content-between gap-3 p-4" style={{borderRadius: "15px",boxShadow:"0px 2px 10px rgba(178, 3, 108, 0.03), 0px 9px 30px rgba(163, 1, 79, 0.05)",}}>
-              <div className="rounded-circle p-2 text-center" style={{ background: "#d8ffe8",width: "46px",height: "46px", cursor:'pointer'}}>
-                 <img src="/images/likes.svg" alt="likes.svg" />
-                 </div>
-               <div className="d-flex flex-column">
-              <span style={{ color: "#bdbdbd", letterSpacing: "0.06em", fontSize: "10px", lineHeight: "14px" }}>LIKES</span>
-              <span style={{ color: "#4f3a57", letterSpacing: "0.02em", lineHeight: "33px" }} className="fs-4 fw-bold">654</span>
-              </div>
-            </div>
-            
-            <div className="d-flex align-items-center justify-content-between gap-3 p-4" style={{ borderRadius: "15px", boxShadow: "0px 2px 10px rgba(178, 3, 108, 0.03), 0px 9px 30px rgba(163, 1, 79, 0.05)" }}>
-              <div className="rounded-circle p-2 text-center" style={{ background: "#fff7df", width: "46px", height: "46px",cursor:'pointer' }}>
-                <img src="/images/fav.svg" alt="fav.svg" />
-                </div>
-                <div className="d-flex flex-column">
-                  <span style={{ color: "#bdbdbd", letterSpacing: "0.06em", fontSize: "10px", lineHeight: "14px" }}>FAVORITES</span>
-                  <span className="fs-4 fw-bold" style={{ color: "#4f3a57", letterSpacing: "0.02em", lineHeight: "33px" }}>855</span>
-                  </div>
-            </div>
-
-            <div className="d-flex align-items-center justify-content-between gap-3 p-4" style={{ borderRadius: "15px", boxShadow: "0px 2px 10px rgba(178, 3, 108, 0.03), 0px 9px 30px rgba(163, 1, 79, 0.05)" }}>
-              <div className="rounded-circle p-2 text-center" style={{ background: "#def7ff", width: "46px", height: "46px", cursor:'pointer' }}>
-                <img src="/images/views.svg" alt="views.svg" />
-                </div>
-                <div className="d-flex flex-column">
-                  <span style={{ color: "#bdbdbd", letterSpacing: "0.06em", fontSize: "10px", lineHeight: "14px" }}>VIEWS</span>
-                  <span className="fs-4 fw-bold" style={{ color: "#4f3a57", letterSpacing: "0.02em", lineHeight: "33px" }}>5,436</span>
-            </div>
-            </div>
+            ))}
             </div>
           </div>
 
