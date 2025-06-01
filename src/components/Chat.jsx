@@ -7,7 +7,7 @@ const Chat = () => {
       <Header/>
       <div className="d-flex align-items-center justify-content-between px-4 py-2">
         <div> 
-          <Link to="./dashboard"><img src="/images/back.svg" alt="back.svg"/></Link>
+          <Link to="/dashboard"><img src="/images/back.svg" alt="back.svg"/></Link>
           </div>
         <div className="d-flex flex-column align-items-center gap-2">
           <div className="position-relative">
