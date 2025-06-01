@@ -190,7 +190,7 @@ const Dashboard = () => {
 
         <div className="d-flex flex-column flex-grow-1">
           <div className="d-flex justify-content-center">
-          <Link to={navigate('/chat')}
+          <Link to='/chat'
             ><img
               src="/images/chat.svg"
               alt="chat.svg"

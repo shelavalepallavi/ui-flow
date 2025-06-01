@@ -32,11 +32,11 @@ const Ecommerce = () => {
 
      <div className="px-3 d-flex flex-sm-row flex-column-reverse justify-content-between gap-5 position-relative">
     <div className="d-flex flex-row flex-sm-column align-items-start justify-content-sm-start justify-content-between  gap-4 gap-sm-5 py-2 fixed-sm-bottom bg-white">
-      <Link to="/ecommerce.html" className="hover-wrapper p-2 rounded-circle"><img src="/images/e-home.svg" alt="e-home.svg" style={{cursor:'pointer'}} /></Link>
-      <Link to="/blog.html" className="hover-wrapper p-2 rounded-circle"><img src="/images/e-activity.svg" alt="e-activity.svg" style={{cursor:'pointer'}}/></Link>
-      <Link to="/chat.html" className="hover-wrapper p-2 rounded-circle"><img src="/images/e-message.svg" alt="e-message.svg" style={{cursor:'pointer'}} /></Link>
-      <Link to="/map.html" className="hover-wrapper p-2 rounded-circle"><img src="/images/e-map.svg" alt="e-map.svg" style={{cursor:'pointer'}} /></Link>
-      <Link to="/profile.html" className="hover-wrapper p-2 rounded-circle"><img src="/images/e-profile.svg" alt="e-profile.svg" style={{cursor:'pointer'}}/></Link>
+      <Link to="/ecommerce" className="hover-wrapper p-2 rounded-circle"><img src="/images/e-home.svg" alt="e-home.svg" style={{cursor:'pointer'}} /></Link>
+      <Link to="/blog" className="hover-wrapper p-2 rounded-circle"><img src="/images/e-activity.svg" alt="e-activity.svg" style={{cursor:'pointer'}}/></Link>
+      <Link to="/chat" className="hover-wrapper p-2 rounded-circle"><img src="/images/e-message.svg" alt="e-message.svg" style={{cursor:'pointer'}} /></Link>
+      <Link to="/map" className="hover-wrapper p-2 rounded-circle"><img src="/images/e-map.svg" alt="e-map.svg" style={{cursor:'pointer'}} /></Link>
+      <Link to="/profile" className="hover-wrapper p-2 rounded-circle"><img src="/images/e-profile.svg" alt="e-profile.svg" style={{cursor:'pointer'}}/></Link>
     </div>
     <div className="d-flex flex-column gap-4 flex-grow-1 pb-5">
       <div className="d-flex justify-content-between align-items-center gap-4 gap-sm-5">
@@ -44,7 +44,7 @@ const Ecommerce = () => {
           <input type="text" placeholder="Search.." className="border-0 flex-grow-1 fs-6 fw-light" style={{outline:'none', color:'#151A6A', letterSpacing:'0.0032px', lineHeight:'12px'}}/>
           <img src="/images/e-search.svg" alt="e-search.svg" style={{cursor:'pointer'}}/>
         </div>
-        <a href="./cart.html"><img src="/images/cart.svg" alt="cart.svg" style={{cursor:'pointer'}}/></a>
+        <Link to="./cart"><img src="/images/cart.svg" alt="cart.svg" style={{cursor:'pointer'}}/></Link>
       </div>
 
       <div className="d-flex justify-content-between align-items-center py-3 px-sm-5 px-4 e-gift" style={{background:'#F1E9FE', borderRadius:'5px'}}>
