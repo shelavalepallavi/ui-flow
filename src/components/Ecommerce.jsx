@@ -1,8 +1,21 @@
 import { Link } from "react-router-dom"
 import Header from "./Header"
+import { useState } from "react"
 
 
 const Ecommerce = () => {
+   const [activeMenu, setActiveMenu] = useState(0)
+    const handleClick=(index)=>{
+     setActiveMenu(index)
+    }
+  
+    const menuItems = [
+      { icon: "/images/e-home.svg", alt:'home.svg', path:'/ecommerce' },
+      { icon: "/images/e-activity.svg", alt:'activity.svg', path:'/blog' },
+      { icon: "/images/e-message.svg", alt:'message.svg', path:'/chat' },
+      { icon: "/images/e-map.svg", alt:'map.svg' , path:'/map'},
+      { icon: "/images/e-profile.svg", alt:'profile.svg' , path:'/profile'},
+    ];
   const MainItems = [
     {img:'/images/chocolate.png', price:'2', name:'Kit Kat',  rate:'444'},
     {img:'/images/redchoco.png', price:'3', name:'Pocky',  rate:'430'},
@@ -26,11 +39,15 @@ const Ecommerce = () => {
 
      <div className="px-3 d-flex flex-sm-row flex-column-reverse justify-content-between gap-5 position-relative">
     <div className="d-flex flex-row flex-sm-column align-items-start justify-content-sm-start justify-content-between  gap-4 gap-sm-5 py-2 fixed-sm-bottom bg-white">
-      <Link to="/ecommerce" className="hover-wrapper p-2 rounded-circle"><img src="/images/e-home.svg" alt="e-home.svg" style={{cursor:'pointer'}} /></Link>
-      <Link to="/blog" className="hover-wrapper p-2 rounded-circle"><img src="/images/e-activity.svg" alt="e-activity.svg" style={{cursor:'pointer'}}/></Link>
-      <Link to="/chat" className="hover-wrapper p-2 rounded-circle"><img src="/images/e-message.svg" alt="e-message.svg" style={{cursor:'pointer'}} /></Link>
-      <Link to="/map" className="hover-wrapper p-2 rounded-circle"><img src="/images/e-map.svg" alt="e-map.svg" style={{cursor:'pointer'}} /></Link>
-      <Link to="/profile" className="hover-wrapper p-2 rounded-circle"><img src="/images/e-profile.svg" alt="e-profile.svg" style={{cursor:'pointer'}}/></Link>
+      {menuItems.map((item, index) => (
+                <Link to={item.path} key={index} className={`dash-menu ${activeMenu === index ? 'active':''} hover-wrapper p-2 rounded-circle` } onClick={()=>handleClick(index)}>
+                <img
+                  src={item.icon}
+                  alt={item.alt}
+                  style={{ cursor: "pointer" }}
+                />
+              </Link>
+              ))}
     </div>
     <div className="d-flex flex-column gap-4 flex-grow-1 pb-5">
       <div className="d-flex justify-content-between align-items-center gap-4 gap-sm-5">

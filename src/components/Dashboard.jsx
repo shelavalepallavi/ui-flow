@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { useRef } from "react";
 import Chart from "chart.js/auto";
 import { Link } from "react-router-dom";
@@ -6,6 +6,19 @@ import Header from "./Header"
 
 
 const Dashboard = () => {
+   const [activeMenu, setActiveMenu] = useState(null)
+  const handleClick=(index)=>{
+   setActiveMenu(index)
+  }
+
+  const menuItems = [
+    { icon: "/images/home.svg", alt:'home.svg', path:'/ecommerce' },
+    { icon: "/images/activiti.svg", alt:'activity.svg', path:'/blog' },
+    { icon: "/images/message.svg", alt:'message.svg', path:'/chat' },
+    { icon: "/images/map.svg", alt:'map.svg' , path:'/map'},
+    { icon: "/images/profile.svg", alt:'profile.svg' , path:'/profile'},
+  ];
+
   const chartRef = useRef(null);
   const chartInstanceRef = useRef(null);
 
@@ -125,51 +138,15 @@ const Dashboard = () => {
         <div className="fixed-sm-bottom bg-white z-1">
           <div className="fixed-sm-bottom bg-white z-1">
             <div className="d-flex flex-row  flex-sm-column align-items-start justify-content-sm-start justify-content-between gap-5 py-3 py-sm-0">
-              <Link to='/ecommerce'
-                className="hover-wrapper p-2 rounded-circle">
+              {menuItems.map((item, index) => (
+                <Link to={item.path} key={index} className={`dash-menu ${activeMenu === index ? 'active':''} hover-wrapper p-2 rounded-circle` } onClick={()=>handleClick(index)}>
                 <img
-                  src="/images/home.svg"
-                  alt="home.svg"
+                  src={item.icon}
+                  alt={item.alt}
                   style={{ cursor: "pointer" }}
                 />
               </Link>
-              <Link
-                to='/blog'
-                className="hover-wrapper p-2 rounded-circle"
-              >
-                <img
-                  src="/images/activiti.svg"
-                  alt="activiti.svg"
-                  style={{ cursor: "pointer" }}
-                />
-              </Link>
-              <Link
-                to='/chat'
-                className="hover-wrapper p-2 rounded-circle"
-              >
-                <img
-                  src="/images/message.svg"
-                  alt="message.svg"
-                  style={{ cursor: "pointer" }}
-                />
-              </Link>
-              <Link to='/map' className="hover-wrapper p-2 rounded-circle">
-                <img
-                  src="/images/map.svg"
-                  alt="map.svg"
-                  style={{ cursor: "pointer" }}
-                />
-              </Link>
-              <Link
-                to='/profile'
-                className="hover-wrapper p-2 rounded-circle"
-              >
-                <img
-                  src="/images/profile.svg"
-                  alt="profile.svg"
-                  style={{ cursor: "pointer" }}
-                />
-              </Link>
+              ))}
             </div>
             <div className="d-sm-none d-flex justify-content-center align-items-end flex-grow-1 py-1 position-relative z-1">
               <img src="/images/rectangle.svg" alt="rectangle.svg" />
@@ -224,8 +201,8 @@ const Dashboard = () => {
           </p>
           <div className="d-flex gap-sm-5 gap-2 flex-wrap justify-content-center">
             {Activity.map((item, index) => (
-              <div className="d-flex align-items-center justify-content-between gap-3 p-4" style={{borderRadius:'15px', boxShadow:'0px 2px 10px rgba(178, 3, 108, 0.03),0px 9px 30px rgba(163, 1, 79, 0.05)'}} >
-              <div className="rounded-circle p-2 hover-dash text-center"  style={{background:item.bg_color, width:'46px', height:'46px'}}>
+              <div className="d-flex align-items-center justify-content-between gap-3 p-4" style={{borderRadius:'15px', boxShadow:'0px 2px 10px rgba(178, 3, 108, 0.03),0px 9px 30px rgba(163, 1, 79, 0.05)'}} key={index}>
+              <div className="rounded-circle p-2  text-center"  style={{background:item.bg_color, width:'46px', height:'46px'}}>
                 <img src={item.emoji} alt="visits.svg" />
               </div>
               <div className="d-flex flex-column">
