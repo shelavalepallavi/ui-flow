@@ -119,6 +119,9 @@ main .third-button {
         stroke-dashoffset: 440;
         animation: drawProgress 2s ease-out forwards;
   }
+  .dash-menu{
+    transition: background-color 0.3s ease, color 0.3s ease;
+  }
 
 .dash-menu:hover {
   background: #d8e6ff;
@@ -137,6 +140,9 @@ main .third-button {
 .dash-menu.active img{
   color: #133774;
   filter: brightness(0) saturate(100%) invert(16%) sepia(86%) saturate(630%) hue-rotate(209deg) brightness(90%) contrast(98%);
+}
+.dash-menu img{
+  transition: color 0.3s ease;
 }
 
   
