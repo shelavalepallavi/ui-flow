@@ -6,7 +6,8 @@ import Header from "./Header"
 
 
 const Dashboard = () => {
-   const [activeMenu, setActiveMenu] = useState(null)
+   const [activeMenu, setActiveMenu] = useState(null);
+   const [isHovered, setIsHovered] = useState(false);
   const handleClick=(index)=>{
    setActiveMenu(index)
   }
@@ -122,11 +123,12 @@ const Dashboard = () => {
   }, []);
 
   const Activity = [
-    {bg_color:'#f7e3ff', emoji:'images/visits.svg', title:'VISITS', num:'4,324'},
-    {bg_color:'#d8ffe8', emoji:'images/likes.svg', title:'LIKES', num:'654'},
-    {bg_color:'#fff7df', emoji:'images/fav.svg', title:'FAVORITES', num:'855'},
-    {bg_color:'#def7ff', emoji:'images/views.svg', title:'VIEWS', num:'5,436'},
+    {bg_color:'#f7e3ff',hover_color:'first', emoji:'images/visits.svg', title:'VISITS', num:'4,324'},
+    {bg_color:'#d8ffe8',hover_color:'second', emoji:'images/likes.svg', title:'LIKES', num:'654'},
+    {bg_color:'#fff7df',hover_color:'third', emoji:'images/fav.svg', title:'FAVORITES', num:'855'},
+    {bg_color:'#def7ff',hover_color:'fourth', emoji:'images/views.svg', title:'VIEWS', num:'5,436'},
   ]
+  
   return (
     <div
       className="w-100 min-vh-100 d-flex flex-column"
@@ -201,8 +203,8 @@ const Dashboard = () => {
           </p>
           <div className="d-flex gap-sm-5 gap-2 flex-wrap justify-content-center">
             {Activity.map((item, index) => (
-              <div className="d-flex align-items-center justify-content-between gap-3 p-4" style={{borderRadius:'15px', boxShadow:'0px 2px 10px rgba(178, 3, 108, 0.03),0px 9px 30px rgba(163, 1, 79, 0.05)'}} key={index}>
-              <div className="rounded-circle p-2  text-center"  style={{background:item.bg_color, width:'46px', height:'46px'}}>
+              <div className="d-flex align-items-center justify-content-between gap-3 p-4 box" style={{borderRadius:'15px', boxShadow:'0px 2px 10px rgba(178, 3, 108, 0.03),0px 9px 30px rgba(163, 1, 79, 0.05)', cursor:'pointer'}} key={index}>
+              <div style={{ width:'46px', height:'46px', transition: 'background 0.3s ease-in-out'}} className={`rounded-circle p-2  text-center ${item.hover_color}`}>
                 <img src={item.emoji} alt="visits.svg" />
               </div>
               <div className="d-flex flex-column">

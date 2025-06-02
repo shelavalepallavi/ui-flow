@@ -14,6 +14,8 @@ import Profile from './components/Profile'
 import Cart from './components/Cart'
 
 const App = () => {
+  
+  
   return (
     <div>
       <Router>

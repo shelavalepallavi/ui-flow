@@ -145,6 +145,37 @@ main .third-button {
   transition: color 0.3s ease;
 }
 
+.first{
+  background: #f7e3ff;
+}
+.first:hover{
+  background: #e7cef0;
+}
+.second{
+  background: #d8ffe8;
+}
+.second:hover{
+  background: #caf6dc;
+}
+.third{
+  background: #fff7df;
+}
+.third:hover{
+  background: #faf0d0;
+}
+.fourth{
+  background: #def7ff;
+}
+.fourth:hover{
+  background: #bfe9f7;
+}
+.box{
+  transition: transform 0.3s ease;
+}
+.box:hover{
+  transform: scale(1.1);
+}
+
   
 
  
