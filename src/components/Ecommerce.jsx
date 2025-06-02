@@ -55,7 +55,7 @@ const Ecommerce = () => {
           <input type="text" placeholder="Search.." className="border-0 flex-grow-1 fs-6 fw-light" style={{outline:'none', color:'#151A6A', letterSpacing:'0.0032px', lineHeight:'12px'}}/>
           <img src="/images/e-search.svg" alt="e-search.svg" style={{cursor:'pointer'}}/>
         </div>
-        <Link to="./cart"><img src="/images/cart.svg" alt="cart.svg" style={{cursor:'pointer'}}/></Link>
+        <Link to="./cart"><img src="/images/cart.svg" alt="cart.svg" className="dash-menu p-2 rounded-circle" style={{cursor:'pointer'}}/></Link>
       </div>
 
       <div className="d-flex justify-content-between align-items-center py-3 px-sm-5 px-4 e-gift" style={{background:'#F1E9FE', borderRadius:'5px'}}>
