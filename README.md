@@ -7,7 +7,7 @@ A modern UI Design project built using **REACT**, **CSS**, and **Bootstrap**, fe
 ## 🚀 Features
 
 - 🖥️ **Responsive Design** (Mobile, Tablet, Desktop)
-- 🛒 **E-commerce Pages** (Cart, Product Display).
+- 🛒 **E-commerce Pages** (Cart, Product Display)
 - 📝 **Blog Pages**
 - 📊 **Dashboard Interface**
 - 💬 **Live Chat UI**
